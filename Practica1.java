@@ -2,29 +2,63 @@ package practica1;
 
 import java.util.*;
 
+import static java.lang.Math.sqrt;
+
 public class Practica1 {
 
     //EJERCICIO 1
-    public static Set<Integer> multiplos (ListIterator<Integer> it) {
+    public static Set<Integer> multiplos (Iterator<Integer> it) {
         Set<Integer> resultado = new HashSet<>();
-        Set<Integer> sinMúltiplos = new HashSet<>();
+        Set<Integer> pasados = new HashSet<>();
 
-        //Ponemos al iterador al principio de la colección (HashSet<>);
-        while(it.hasPrevious()) {
-            it.previous();
-        }
-
-        int i = 0;
         while(it.hasNext()) {
+            Integer n = it.next();
 
+            if(n != 0) {
+                for(Integer m : pasados) {
+                    if( m != 0) {
+                        if(n % m == 0) {
+                            resultado.add(n);
+                        }
+                        else if(m % n == 0) {
+                            resultado.add(m);
+                        }
+                    }
+                }
+            }
+            if(!pasados.contains(n))
+                pasados.add(n);
         }
-        return null;
+        return resultado;
     }
 
     //EJERCICIO2
     public static void separate (Set<Integer> cuadrados, Set<Integer> noCuadrados)  {
-        //TODO
+        Set<Integer> pasados = new HashSet<>();
+        Iterator<Integer> it1 = cuadrados.iterator();
+        Iterator<Integer> it2 = noCuadrados.iterator();
 
+        while(it1.hasNext()) {
+            Integer n = it1.next();
+
+            if(n != 0) {
+                for(Integer m : pasados) {
+                    if( m != 0) {
+                        if(sqrt(n) == m) {
+                            if(!cuadrados.contains(n)) {
+                                cuadrados.add(n);
+                                noCuadrados.remove(n);
+                            }
+                        }
+                        else {
+                            if(cuadrados.contains(n)) {
+                                cuadrados.remove(n);
+                                noCuadrados.add(n);
+                            }
+                        }
+                    }
+                }
+            }
     }
 
     //EJERCICIO 3
