@@ -63,13 +63,30 @@ public class Practica1 {
 
     //EJERCICIO 3
     public static<T> Collection<Set<T>> divideInSets (Iterator<T> it) {
-        //TODO
+        int n = 0;
+        while(it.hasNext()) {
+            it.next();
+            n++;
+        }
+
+        int elementosPorCto = n / 2;
+        Set<T> parte1 = new HashSet<>();
+        Set<T> parte2 = new HashSet<>();
+
+        while(it.hasNext()) {
+            T elem = it.next();
+            int cont = 0;
+            if (cont < elementosPorCto)
+                parte1.add(elem);
+            else
+                parte2.add(elem);
+        }
         return null;
     }
 
     //EJERCICIO 4
     public static<T> Collection<Set<T>> coverageSet2 (Set<T> u,ArrayList<Set<T>> col) {
-        //TODO
+
         return null;
     }
 
