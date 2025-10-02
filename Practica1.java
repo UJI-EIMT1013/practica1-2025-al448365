@@ -5,8 +5,19 @@ import java.util.*;
 public class Practica1 {
 
     //EJERCICIO 1
-    public static Set<Integer> multiplos (Iterator<Integer> it) {
-        //TODO
+    public static Set<Integer> multiplos (ListIterator<Integer> it) {
+        Set<Integer> resultado = new HashSet<>();
+        Set<Integer> sinMúltiplos = new HashSet<>();
+
+        //Ponemos al iterador al principio de la colección (HashSet<>);
+        while(it.hasPrevious()) {
+            it.previous();
+        }
+
+        int i = 0;
+        while(it.hasNext()) {
+
+        }
         return null;
     }
 
