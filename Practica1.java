@@ -33,25 +33,24 @@ public class Practica1 {
     }
 
     //EJERCICIO2
-    public static void separate (Set<Integer> cuadrados, Set<Integer> noCuadrados)  {
+    public static void separate (Set<Integer> cuadrados, Set<Integer> noCuadrados) {
         Set<Integer> pasados = new HashSet<>();
         Iterator<Integer> it1 = cuadrados.iterator();
         Iterator<Integer> it2 = noCuadrados.iterator();
 
-        while(it1.hasNext()) {
+        while (it1.hasNext()) {
             Integer n = it1.next();
 
-            if(n != 0) {
-                for(Integer m : pasados) {
-                    if( m != 0) {
-                        if(sqrt(n) == m) {
-                            if(!cuadrados.contains(n)) {
+            if (n != 0) {
+                for (Integer m : pasados) {
+                    if (m != 0) {
+                        if (sqrt(n) == m) {
+                            if (!cuadrados.contains(n)) {
                                 cuadrados.add(n);
                                 noCuadrados.remove(n);
                             }
-                        }
-                        else {
-                            if(cuadrados.contains(n)) {
+                        } else {
+                            if (cuadrados.contains(n)) {
                                 cuadrados.remove(n);
                                 noCuadrados.add(n);
                             }
@@ -59,6 +58,7 @@ public class Practica1 {
                     }
                 }
             }
+        }
     }
 
     //EJERCICIO 3
